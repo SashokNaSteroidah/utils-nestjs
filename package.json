@@ -1,0 +1,29 @@
+{
+  "name": "utils-nestjs",
+  "version": "0.0.1",
+  "description": "Utils for nestjs",
+  "keywords": [
+    "utils",
+    "nestjs",
+    "nest"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-user/repo-url.git"
+  },
+  "author": "SashokNaSteroidah",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
