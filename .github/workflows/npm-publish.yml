@@ -32,4 +32,4 @@ jobs:
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ publish_key }}
+          NODE_AUTH_TOKEN: ${{ secret.publish_key }}
