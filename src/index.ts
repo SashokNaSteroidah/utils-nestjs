@@ -5,4 +5,4 @@
  * @param path
  * @param message
  */
-export const mLog = (handler: string, method: string, path: string, message: string) => `handlerName: "${handler}", method: "${method}", path: "${path}", message: "${message}"`;
+export var mLog = (handler: string, method: string, path: string, message: string) => `handlerName: "${handler}", method: "${method}", path: "${path}", message: "${message}"`;
