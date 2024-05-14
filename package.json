@@ -1,23 +1,21 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.8",
+  "version": "0.0.8-beta",
   "description": "Utils for nestjs",
   "keywords": [
     "utils",
     "nestjs",
     "nest"
   ],
-  "type": "module",
+  "type": "commonjs",
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
