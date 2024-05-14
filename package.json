@@ -21,16 +21,18 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "build:conf": "tsup",
+    "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:tsup": "tsup",
     "lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SashokNaSteroidah/utils-nestjs"
+    "url": "https://github.com/SashokNaSteroidah/utils-nestjs.git"
   },
   "author": "SashokNaSteroidah",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@eslint/js": "9.2.0",
     "@types/node": "20.12.12",
@@ -41,7 +43,7 @@
     "typescript": "5.4.5",
     "typescript-eslint": "7.8.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "chalk": "5.3.0"
   }
 }
