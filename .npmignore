@@ -1,3 +1,5 @@
 .gitignore
 tsup.config.ts
 .eslintrc.json
+.idea
+README.md

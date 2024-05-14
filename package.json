@@ -1,6 +1,6 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.6-b",
+  "version": "0.0.7",
   "description": "Utils for nestjs",
   "keywords": [
     "utils",
@@ -14,6 +14,12 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./distw/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "build": "tsup",
     "lint": "npx eslint ."
