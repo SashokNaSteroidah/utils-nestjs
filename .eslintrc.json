@@ -14,8 +14,7 @@
     },
     "plugins": [
         "@typescript-eslint/eslint-plugin",
-        "@typescript-eslint",
-        "react"
+        "@typescript-eslint"
     ],
     "rules": {
         // Строгая проверка типов

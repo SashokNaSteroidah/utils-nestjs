@@ -1,2 +1,2 @@
 export {mLog} from "./logger"
-export {logOptions, httpMethods} from './logger/types'
+export {logOptions, httpMethods} from "./logger/types"
