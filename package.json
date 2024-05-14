@@ -1,6 +1,6 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.7",
+  "version": "0.0.7-b",
   "description": "Utils for nestjs",
   "keywords": [
     "utils",
@@ -16,8 +16,9 @@
   ],
   "exports": {
     ".": {
-      "require": "./distw/index.cjs",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
