@@ -1,11 +1,14 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.8-beta.1.1",
+  "version": "0.0.8-beta.1.2",
   "description": "Utils for nestjs",
   "keywords": [
     "utils",
     "nestjs",
     "nest"
+  ],
+  "files": [
+    "dist"
   ],
   "exports": {
     ".": {
