@@ -1,9 +1,9 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.8-beta.2",
+  "version": "0.0.8-beta.2.1",
   "description": "Utils for nestjs",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
   "keywords": [
     "utils",
@@ -15,9 +15,9 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/esm/index.js",
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js"
+      "require": "./dist/cjs/index.ts"
     }
   },
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SashokNaSteroidah/utils-nestjs.git"
+    "url": "git+https://github.com/SashokNaSteroidah/utils-nestjs.git"
   },
   "author": "SashokNaSteroidah",
   "license": "Apache-2.0",
