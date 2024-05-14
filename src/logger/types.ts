@@ -29,7 +29,7 @@ export type logOptions = {
     /**
      * File from which the log comes
      */
-    source: string
+    source: string | null
 }
 export type errorLogOptions = logOptions & {
     error: string,
