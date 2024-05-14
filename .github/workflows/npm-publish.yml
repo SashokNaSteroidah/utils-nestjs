@@ -6,8 +6,7 @@ on:
       - master
   release:
     types: [created]
-
-
+  workflow_dispatch: # Добавляем событие для ручной загрузки
 
 jobs:
   publish-npm:
@@ -21,6 +20,12 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-      - run: npm publish
+      - name: Publish to npm
+        run: |
+          if [ "${{ github.actor }}" == "maintainer_username" ]; then # Замените "maintainer_username" на имя пользователя мейнтейнера
+            npm publish
+          else
+            echo "Only the maintainer can publish to npm."
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.publish_key_cicd }}
