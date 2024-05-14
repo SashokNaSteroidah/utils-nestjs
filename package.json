@@ -1,6 +1,6 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.7-beta",
+  "version": "0.0.8",
   "description": "Utils for nestjs",
   "keywords": [
     "utils",
