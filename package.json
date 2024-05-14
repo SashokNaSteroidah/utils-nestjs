@@ -1,6 +1,6 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.8-beta.1.6",
+  "version": "0.0.8-beta.1.9",
   "description": "Utils for nestjs",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
