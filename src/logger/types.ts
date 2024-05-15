@@ -9,6 +9,10 @@ export enum httpMethods {
     TRACE = "TRACE"
 }
 
+export type logConfig = {
+    disableColor: boolean
+}
+
 export type logOptions = {
     /**
      * Handler name
