@@ -1,8 +1,8 @@
 {
   "name": "utils-nestjs",
-  "version": "0.0.8-beta.2.1",
+  "version": "0.0.8-beta.2.2",
   "description": "Utils for nestjs",
-  "main": "./dist/cjs/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
   "keywords": [
@@ -17,14 +17,11 @@
     ".": {
       "import": "./dist/esm/index.js",
       "types": "./dist/index.d.ts",
-      "require": "./dist/cjs/index.ts"
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:tsup": "tsup",
+    "build": "rm -rf ./dist && tsup",
     "lint": "npx eslint ."
   },
   "repository": {
