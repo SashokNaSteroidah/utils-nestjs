@@ -11,7 +11,7 @@ export default defineConfig({
     legacyOutput: true,
     sourcemap: true,
     clean: true,
-    bundle: false,
+    bundle: true,
     terserOptions: {
         compress: true,
         module: true,
