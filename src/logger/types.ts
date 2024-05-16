@@ -12,7 +12,7 @@ export enum httpMethods {
 export type logConfig = {
     disableColor?: boolean,
     brackets?: boolean,
-    colors: Partial<colorsConfig>
+    colors?: Partial<colorsConfig>
 }
 
 export type colorsConfig = {
