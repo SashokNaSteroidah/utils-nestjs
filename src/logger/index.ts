@@ -54,6 +54,18 @@ export const mLog = {
         }, null, configForLog.spacesInJson ?? 0)
 
         const disableBrackets  = configForLog.disableBrackets ? json.replace(/[{}]/g, "") : json
-        return  configForLog.formatString ? disableBrackets.replace( /,/g, ", ") : disableBrackets
+        const formatString = configForLog.formatString ? disableBrackets.replace( /,/g, ", ") : disableBrackets
+        console.log(json, disableBrackets, formatString, {
+            info       : infoAfterConfig,
+            warn       : warnAfterConfig,
+            fatal      : fatalAfterConfig,
+            error      : errorAfterConfig,
+            handlerName: handler,
+            method     : method,
+            path       : path,
+            source     : source ?? __filename,
+            message    : message,
+        })
+        return formatString
     },
 }
