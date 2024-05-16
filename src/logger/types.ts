@@ -49,7 +49,8 @@ export type logConfig = {
     disableColor?: boolean,
     disableBrackets?: boolean,
     formatString?: boolean,
-    spacesInJson?: number
+    spacesInJson?: number,
+    objectToLog?: boolean,
     colors?: Partial<colorsConfig>
 }
 
