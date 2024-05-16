@@ -44,7 +44,7 @@ export const mLog = {
             path       : path,
             source     : source ?? __filename,
             message    : message,
-        })
+        }, null, 2)
         const disableBrackets = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
         const formatString = disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
         return formatString
