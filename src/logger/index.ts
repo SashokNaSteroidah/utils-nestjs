@@ -1,27 +1,44 @@
 import {
-    errorLogOptions,
-    fatalLogOptions,
-    infoLogOptions,
     logConfig,
     logOptions,
-    warnLogOptions,
-} from "./types";
+}            from "./types";
 import chalk from "chalk";
 
-const errorColor = chalk.red;
-const greenColor = chalk.green;
-const warningColor = chalk.hex("#FFA500");
-
 let configForLog: logConfig = {
-    disableColor: false
+    disableColor: false,
+    brackets    : true,
+    colors      : {
+        error: "#ff0000",
+        info : "",
+        fatal: "#ff0000",
+        warn : "#FFA500",
+    },
 }
 export const mLog = {
     config: (options: logConfig): void => {
         configForLog = {...options}
     },
-    log: ({path, message, method, handler, source}: Partial<logOptions>): string => (JSON.stringify({handlerName: handler, method: method, path: path, source: source ?? __filename, message: message})),
-    info: ({info, path, message, method, handler, source}: Partial<infoLogOptions>): string => (JSON.stringify({info: !configForLog.disableColor ? greenColor(info) : info, handlerName: handler, method: method, path: path, source: source ?? __filename, message: message})),
-    warn: ({warn, path, message, method, handler, source}: Partial<warnLogOptions>): string => (JSON.stringify({warn: !configForLog.disableColor ? warningColor(warn) : warn, handlerName: handler, method: method, path: path, source: source ?? __filename, message: message})),
-    error: ({error, path, message, method, handler, source}: Partial<errorLogOptions>): string => (JSON.stringify({error: !configForLog.disableColor ? errorColor(error) : error, handlerName: handler, method: method, path: path, source: source ?? __filename, message: message})),
-    fatal: ({fatal, path, message, method, handler, source}: Partial<fatalLogOptions>): string => (JSON.stringify({fatal: !configForLog.disableColor ? errorColor(fatal) : fatal, handlerName: handler, method: method, path: path, source: source ?? __filename, message: message})),
+    log   : ({
+                 info,
+                 warn,
+                 fatal,
+                 error,
+                 path,
+                 message,
+                 method,
+                 handler,
+                 source,
+             }: Partial<logOptions>): string => (
+        JSON.stringify({
+            info       : !configForLog.disableColor ? chalk.hex(configForLog.colors.info || "") : info,
+            warn       : !configForLog.disableColor ? chalk.hex(configForLog.colors.warn || "#FFA500") : warn,
+            fatal      : !configForLog.disableColor ? chalk.hex(configForLog.colors.fatal || "#ff0000") : fatal,
+            error      : !configForLog.disableColor ? chalk.hex(configForLog.colors.error || "#ff0000") : error,
+            handlerName: handler,
+            method     : method,
+            path       : path,
+            source     : source ?? __filename,
+            message    : message,
+        }).replace(configForLog.brackets ? /[{}]/g : "", "")
+    ),
 }

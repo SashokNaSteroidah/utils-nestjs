@@ -1,16 +1,25 @@
 export enum httpMethods {
-    POST = "POST",
-    GET = "GET",
-    PATCH = "PATCH",
-    PUT = "PUT",
+    POST    = "POST",
+    GET     = "GET",
+    PATCH   = "PATCH",
+    PUT     = "PUT",
     OPTIONS = "OPTIONS",
-    DELETE = "DELETE",
-    HEAD = "HEAD",
-    TRACE = "TRACE"
+    DELETE  = "DELETE",
+    HEAD    = "HEAD",
+    TRACE   = "TRACE"
 }
 
 export type logConfig = {
-    disableColor: boolean
+    disableColor?: boolean,
+    brackets?: boolean,
+    colors: Partial<colorsConfig>
+}
+
+export type colorsConfig = {
+    error: string,
+    warn: string,
+    info: string,
+    fatal: string
 }
 
 export type logOptions = {
@@ -32,18 +41,11 @@ export type logOptions = {
     message: string
     /**
      * File from which the log comes
+     * Can be null, by default get data from {@link getPathToCurrentFile}
      */
-    source: string | null
-}
-export type errorLogOptions = logOptions & {
-    error: string,
-}
-export type warnLogOptions = logOptions & {
-    warn: string,
-}
-export type fatalLogOptions = logOptions & {
-    fatal: string,
-}
-export type infoLogOptions = logOptions & {
+    source: string | null,
     info: string,
+    error: string,
+    warn: string,
+    fatal: string,
 }
