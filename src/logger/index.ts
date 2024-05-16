@@ -16,7 +16,7 @@ let configForLog: logConfig = {
     },
     spacesInJson   : 0,
 }
-export const mLog           = {
+export const mLog = {
     config: (options: logConfig): void => {
         configForLog = {...options}
     },
@@ -51,9 +51,9 @@ export const mLog           = {
             path       : path,
             source     : source ?? __filename,
             message    : message,
-        }, null, configForLog.spacesInJson)
+        }, null, configForLog.spacesInJson ?? 0)
 
         const disableBrackets  = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
-        return disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
+        return disableBrackets.replace(configForLog.formatString ? /,/g : "", ", ")
     },
 }

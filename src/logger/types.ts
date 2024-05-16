@@ -13,7 +13,7 @@ export type logConfig = {
     disableColor?: boolean,
     disableBrackets?: boolean,
     formatString?: boolean,
-    spacesInJson: number
+    spacesInJson?: number
     colors?: Partial<colorsConfig>
 }
 
