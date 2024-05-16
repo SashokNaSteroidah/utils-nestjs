@@ -12,7 +12,8 @@ export enum httpMethods {
 export type logConfig = {
     disableColor?: boolean,
     disableBrackets?: boolean,
-    formatString?: boolean
+    formatString?: boolean,
+    spacesInJson: number
     colors?: Partial<colorsConfig>
 }
 

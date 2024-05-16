@@ -10,10 +10,11 @@ let configForLog: logConfig = {
     formatString: true,
     colors      : {
         error: "#ff0000",
-        info : "",
+        info : "#00ff00",
         fatal: "#ff0000",
         warn : "#FFA500",
     },
+    spacesInJson: 0
 }
 export const mLog = {
     config: (options: logConfig): void => {
@@ -30,10 +31,10 @@ export const mLog = {
                  handler,
                  source,
              }: Partial<logOptions>): string => {
-        const infoAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "") : info
-        const warnAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "") : warn
-        const fatalAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "") : fatal
-        const errorAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "") : error
+        const infoAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#ff0000") : info
+        const warnAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#00ff00") : warn
+        const fatalAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "#ff0000") : fatal
+        const errorAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "#ff0000") : error
         const json = JSON.stringify({
             info       : infoAfterConfig,
             warn       : warnAfterConfig,
@@ -44,9 +45,9 @@ export const mLog = {
             path       : path,
             source     : source ?? __filename,
             message    : message,
-        }, null, 2)
-        const disableBrackets = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
-        const formatString = disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
-        return formatString
+        }, null, configForLog.spacesInJson)
+        // const disableBrackets = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
+        // const formatString = disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
+        return json
     }
 }
