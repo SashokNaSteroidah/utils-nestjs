@@ -50,9 +50,9 @@ export const mLog           = {
             const warnColor  = configForLog.colors?.warn ? configForLog.colors.warn : termColors.Yellow
 
             const infoAfterConfig  = !configForLog.disableColor ? `${infoColor}${info}` : info
-            const warnAfterConfig  = !configForLog.disableColor ? `${warnColor}${info}` : warn
-            const fatalAfterConfig = !configForLog.disableColor ? `${fatalColor}${info}` : fatal
-            const errorAfterConfig = !configForLog.disableColor ? `${errorColor}${info}` : error
+            const warnAfterConfig  = !configForLog.disableColor ? `${warnColor}${warn}` : warn
+            const fatalAfterConfig = !configForLog.disableColor ? `${fatalColor}${fatal}` : fatal
+            const errorAfterConfig = !configForLog.disableColor ? `${errorColor}${error}` : error
             return {
                 ...log,
                 info : infoAfterConfig,
