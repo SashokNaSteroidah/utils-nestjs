@@ -7,6 +7,7 @@ import chalk from "chalk";
 let configForLog: logConfig = {
     disableColor: false,
     disableBrackets : false,
+    formatString: true,
     colors      : {
         error: "#ff0000",
         info : "",
@@ -28,17 +29,24 @@ export const mLog = {
                  method,
                  handler,
                  source,
-             }: Partial<logOptions>): string => (
-        JSON.stringify({
-            info       : !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "") : info,
-            warn       : !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#FFA500") : warn,
-            fatal      : !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "#ff0000") : fatal,
-            error      : !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "#ff0000") : error,
+             }: Partial<logOptions>): string => {
+        const infoAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "") : info
+        const warnAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "") : warn
+        const fatalAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "") : fatal
+        const errorAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "") : error
+        const json = JSON.stringify({
+            info       : infoAfterConfig,
+            warn       : warnAfterConfig,
+            fatal      : fatalAfterConfig,
+            error      : errorAfterConfig,
             handlerName: handler,
             method     : method,
             path       : path,
             source     : source ?? __filename,
             message    : message,
-        }).replace(configForLog.disableBrackets ? /[{}]/g : "", "")
-    ),
+        })
+        const disableBrackets = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
+        const formatString = disableBrackets.replace(configForLog.formatString ? "," : "", ", ")
+        return formatString
+    }
 }
