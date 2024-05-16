@@ -47,7 +47,7 @@ export const mLog           = {
         if (configForLog.objectToLog) {
             const errorColor = configForLog.colors?.error ? configForLog.colors.error : termColors.Red
             const fatalColor = configForLog.colors?.fatal ? configForLog.colors.fatal : termColors.Red
-            const infoColor  = configForLog.colors?.info ? configForLog.colors.info : termColors.White
+            // const infoColor  = configForLog.colors?.info ? configForLog.colors.info : termColors.White
             const warnColor  = configForLog.colors?.warn ? configForLog.colors.warn : termColors.Yellow
 
             const infoAfterConfig  = !configForLog.disableColor ? "\\e[0;37minfo" : info
