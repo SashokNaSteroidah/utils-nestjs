@@ -36,10 +36,10 @@ export const mLog = {
         const infoColor  = chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#00ff00")
         const warnColor  = chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#FFA500")
 
-        const infoAfterConfig  = !configForLog.disableColor ? infoColor(info) : info
-        const warnAfterConfig  = !configForLog.disableColor ? warnColor(warn) : warn
-        const fatalAfterConfig = !configForLog.disableColor ? fatalColor(fatal) : fatal
-        const errorAfterConfig = !configForLog.disableColor ? errorColor(error) : error
+        const infoAfterConfig  = !configForLog.disableColor ? infoColor.bold(info) : info
+        const warnAfterConfig  = !configForLog.disableColor ? warnColor.bold(warn) : warn
+        const fatalAfterConfig = !configForLog.disableColor ? fatalColor.bold(fatal) : fatal
+        const errorAfterConfig = !configForLog.disableColor ? errorColor.bold(error) : error
 
         const json             = JSON.stringify({
             info       : infoAfterConfig,

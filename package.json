@@ -1,6 +1,6 @@
 {
   "name": "utils-nestjs",
-  "version": "0.1.0-beta.2.2",
+  "version": "0.1.0-beta.2.3",
   "description": "Utils for nestjs",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
