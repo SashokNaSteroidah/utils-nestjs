@@ -5,18 +5,18 @@ import {
 import chalk from "chalk";
 
 let configForLog: logConfig = {
-    disableColor: false,
-    disableBrackets : false,
-    formatString: true,
-    colors      : {
+    disableColor   : false,
+    disableBrackets: false,
+    formatString   : true,
+    colors         : {
         error: "#ff0000",
         info : "#00ff00",
         fatal: "#ff0000",
         warn : "#FFA500",
     },
-    spacesInJson: 0
+    spacesInJson   : 0,
 }
-export const mLog = {
+export const mLog           = {
     config: (options: logConfig): void => {
         configForLog = {...options}
     },
@@ -31,11 +31,17 @@ export const mLog = {
                  handler,
                  source,
              }: Partial<logOptions>): string => {
-        const infoAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#ff0000") : info
-        const warnAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#00ff00") : warn
-        const fatalAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "#ff0000") : fatal
-        const errorAfterConfig = !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "#ff0000") : error
-        const json = JSON.stringify({
+        const errorColor = chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#ff0000")
+        const fatalColor = chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#ff0000")
+        const infoColor  = chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "#00ff00")
+        const warnColor  = chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#FFA500")
+
+        const infoAfterConfig  = !configForLog.disableColor ? infoColor(info) : info
+        const warnAfterConfig  = !configForLog.disableColor ? warnColor(warn) : warn
+        const fatalAfterConfig = !configForLog.disableColor ? fatalColor(fatal) : fatal
+        const errorAfterConfig = !configForLog.disableColor ? errorColor(error) : error
+
+        const json             = JSON.stringify({
             info       : infoAfterConfig,
             warn       : warnAfterConfig,
             fatal      : fatalAfterConfig,
@@ -46,8 +52,8 @@ export const mLog = {
             source     : source ?? __filename,
             message    : message,
         }, null, configForLog.spacesInJson)
-        // const disableBrackets = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
-        // const formatString = disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
-        return json
-    }
+
+        const disableBrackets  = json.replace(configForLog.disableBrackets ? /[{}]/g : "", "")
+        return disableBrackets.replace(configForLog.formatString ? "\",\"" : "", ", ")
+    },
 }
