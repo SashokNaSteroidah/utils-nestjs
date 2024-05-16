@@ -3,6 +3,7 @@ import {
     logOptions,
     termColors,
 } from "./types";
+import {sDetect} from "../sDetect";
 
 let configForLog: logConfig = {
     disableColor   : false,
@@ -40,7 +41,7 @@ export const mLog           = {
             handlerName: handler,
             method     : method,
             path       : path,
-            source     : source ?? __filename,
+            source     : source ?? sDetect.getPathToCurrentFile(),
             message    : message,
         }
         if (configForLog.objectToLog) {
@@ -49,7 +50,7 @@ export const mLog           = {
             const infoColor  = configForLog.colors?.info ? configForLog.colors.info : termColors.White
             const warnColor  = configForLog.colors?.warn ? configForLog.colors.warn : termColors.Yellow
 
-            const infoAfterConfig  = !configForLog.disableColor ? `${infoColor}${info}` : info
+            const infoAfterConfig  = !configForLog.disableColor ? "\\e[0;37minfo" : info
             const warnAfterConfig  = !configForLog.disableColor ? `${warnColor}${warn}` : warn
             const fatalAfterConfig = !configForLog.disableColor ? `${fatalColor}${fatal}` : fatal
             const errorAfterConfig = !configForLog.disableColor ? `${errorColor}${error}` : error
