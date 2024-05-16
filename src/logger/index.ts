@@ -30,10 +30,10 @@ export const mLog = {
                  source,
              }: Partial<logOptions>): string => (
         JSON.stringify({
-            info       : !configForLog.disableColor ? chalk.hex(configForLog.colors.info || "") : info,
-            warn       : !configForLog.disableColor ? chalk.hex(configForLog.colors.warn || "#FFA500") : warn,
-            fatal      : !configForLog.disableColor ? chalk.hex(configForLog.colors.fatal || "#ff0000") : fatal,
-            error      : !configForLog.disableColor ? chalk.hex(configForLog.colors.error || "#ff0000") : error,
+            info       : !configForLog.disableColor ? chalk.hex(configForLog.colors?.info ? configForLog.colors.info : "") : info,
+            warn       : !configForLog.disableColor ? chalk.hex(configForLog.colors?.warn ? configForLog.colors.warn : "#FFA500") : warn,
+            fatal      : !configForLog.disableColor ? chalk.hex(configForLog.colors?.fatal ? configForLog.colors.fatal : "#ff0000") : fatal,
+            error      : !configForLog.disableColor ? chalk.hex(configForLog.colors?.error ? configForLog.colors.error : "#ff0000") : error,
             handlerName: handler,
             method     : method,
             path       : path,
