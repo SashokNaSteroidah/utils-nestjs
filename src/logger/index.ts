@@ -6,7 +6,7 @@ import chalk from "chalk";
 
 let configForLog: logConfig = {
     disableColor: false,
-    brackets    : true,
+    disableBrackets : false,
     colors      : {
         error: "#ff0000",
         info : "",
@@ -39,6 +39,6 @@ export const mLog = {
             path       : path,
             source     : source ?? __filename,
             message    : message,
-        }).replace(configForLog.brackets ? /[{}]/g : "", "")
+        }).replace(configForLog.disableBrackets ? /[{}]/g : "", "")
     ),
 }
