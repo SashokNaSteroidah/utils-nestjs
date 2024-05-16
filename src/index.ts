@@ -6,4 +6,4 @@ export {
     logConfig,
 }                from "./logger/types"
 export {sDetect} from "./sDetect";
-export {sleep} from "./sleep"
+export {sleep}   from "./sleep"
