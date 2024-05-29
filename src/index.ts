@@ -8,3 +8,4 @@ export {
 }                from "./logger/types"
 export {sDetect} from "./sDetect";
 export {sleep}   from "./sleep"
+export {LoggingInterceptor} from "./logger/interceptors/logger.interceptor"

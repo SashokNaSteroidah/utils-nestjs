@@ -68,3 +68,4 @@ export const mLog           = {
         return configForLog.formatString ? disableBrackets.replace(/,/g, ", ") : disableBrackets
     },
 }
+
