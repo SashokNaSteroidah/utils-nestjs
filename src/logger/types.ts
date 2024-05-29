@@ -51,6 +51,7 @@ export type logConfig = {
     formatString?: boolean,
     spacesInJson?: number,
     objectToLog?: boolean,
+    setSourceByDefault?: boolean
     colors?: Partial<colorsConfig>
 }
 
